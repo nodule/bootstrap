@@ -1,0 +1,64 @@
+{
+  "name": "bootstrap",
+  "description": "Bootstrap nodes for Chiχ",
+  "version": "0.0.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nodule/fs.git"
+  },
+  "nodes": [
+    {
+      "ports": {
+        "input": {
+          "mustache": {
+            "title": "Mustache Template Engine",
+            "type": "function"
+          },
+          "template": {
+            "title": "Template",
+            "type": "string",
+            "format": "html"
+          },
+          "vars": {
+            "title": "Variables",
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string",
+                "title": "Title",
+                "default": "Hello, world!",
+                "required": "true"
+              },
+              "content": {
+                "type": "string",
+                "title": "Content",
+                "default": "This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.",
+                "required": "true"
+              },
+              "button_text": {
+                "type": "string",
+                "title": "Button text",
+                "default": "Learn More",
+                "required": "true"
+              }
+            }
+          }
+        },
+        "output": {
+          "html": {
+            "title": "html",
+            "type": "string"
+          }
+        }
+      },
+      "depends": [
+        "template:mustache"
+      ],
+      "type": "object",
+      "description": "Bootstrap - Jumbotron",
+      "ns": "bootstrap",
+      "name": "jumbotron"
+    }
+  ],
+  "twigs": []
+}
