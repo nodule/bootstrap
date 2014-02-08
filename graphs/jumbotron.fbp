@@ -1,0 +1,11 @@
+title:       Bootstrap Jumbotron
+package:     bootstrap
+ns:          jumbotron
+description: Bootstrap Jumbotron template
+
+'./jumbotron.tpl' ~> @body Tpl(template/handlebars)
+
+-> [title] vars:title Tpl
+->  [body] vars:body  Tpl
+
+<- tpl out

@@ -1,0 +1,42 @@
+{
+  "id": "d21a151c-c318-43fc-a219-7fc22901f651",
+  "type": "flow",
+  "links": [],
+  "nodes": [
+    {
+      "id": "b8e964be-9f9a-4a62-b905-0e6c5575e956",
+      "title": "Tpl",
+      "ns": "template",
+      "name": "handlebars",
+      "context": {
+        "body": "<div class=\"jumbotron\">\n   <div class=\"container\">\n      {{&body}}\n   </div>\n</div>\n"
+      }
+    }
+  ],
+  "title": "Bootstrap Jumbotron",
+  "ns": "jumbotron",
+  "description": "Bootstrap Jumbotron template",
+  "ports": {
+    "input": {
+      "title": {
+        "nodeId": "b8e964be-9f9a-4a62-b905-0e6c5575e956",
+        "title": "Title",
+        "name": "vars",
+        "[]": "title"
+      },
+      "body": {
+        "nodeId": "b8e964be-9f9a-4a62-b905-0e6c5575e956",
+        "title": "Body",
+        "name": "vars",
+        "[]": "body"
+      }
+    },
+    "output": {
+      "tpl": {
+        "nodeId": "db143160-c52b-49f7-b03c-f0acdb0a0353",
+        "title": "Tpl",
+        "name": "tpl"
+      }
+    }
+  }
+}
