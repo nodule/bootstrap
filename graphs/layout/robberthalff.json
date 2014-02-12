@@ -1,10 +1,10 @@
 {
-  "id": "85002567-5455-46b8-ba79-736670f4b5fa",
+  "id": "fe181dc4-2d1a-46b7-a36d-3b374dc46719",
   "type": "flow",
   "links": [],
   "nodes": [
     {
-      "id": "9c256733-c5b2-446c-9360-5c6e228540aa",
+      "id": "0e7b3976-0b06-4ee2-b2bb-b887cc5bece1",
       "title": "Tpl",
       "ns": "template",
       "name": "handlebars",
@@ -20,19 +20,26 @@
   "ports": {
     "input": {
       "body": {
-        "nodeId": "9c256733-c5b2-446c-9360-5c6e228540aa",
+        "nodeId": "0e7b3976-0b06-4ee2-b2bb-b887cc5bece1",
         "title": "Body",
         "name": "vars"
       },
       "header": {
-        "nodeId": "9c256733-c5b2-446c-9360-5c6e228540aa",
+        "nodeId": "0e7b3976-0b06-4ee2-b2bb-b887cc5bece1",
         "title": "Header",
         "name": "vars"
       },
       "footer": {
-        "nodeId": "9c256733-c5b2-446c-9360-5c6e228540aa",
+        "nodeId": "0e7b3976-0b06-4ee2-b2bb-b887cc5bece1",
         "title": "Footer",
         "name": "vars"
+      }
+    },
+    "output": {
+      "html": {
+        "nodeId": "0e7b3976-0b06-4ee2-b2bb-b887cc5bece1",
+        "title": "Html",
+        "name": "out"
       }
     }
   },

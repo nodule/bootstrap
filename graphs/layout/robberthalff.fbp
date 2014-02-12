@@ -11,3 +11,5 @@ description: Bootstrapper
 -> [body]   vars:body   Tpl
 -> [header] vars:header Tpl
 -> [footer] vars:footer Tpl
+
+<- out:html Tpl
