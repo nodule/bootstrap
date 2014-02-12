@@ -3,7 +3,7 @@ package: layout
 name: robberthalff
 description: Bootstrapper
 
-'./robberthalff.tpl' ~> @tpl Tpl(template/handlebars)
+'./robberthalff.tpl' ~> @body Tpl(template/handlebars)
 
 'Robbert Halff.com'    -> [title]       vars Tpl
 'Website of Rob Halff' -> [description] vars Tpl
