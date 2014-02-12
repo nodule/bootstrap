@@ -1,0 +1,13 @@
+title: Layout Template
+package: layout
+name: robberthalff
+description: Bootstrapper
+
+'./robberthalff.tpl' ~> @tpl Tpl(template/handlebars)
+
+'Robbert Halff.com'    -> [title]       vars Tpl
+'Website of Rob Halff' -> [description] vars Tpl
+
+-> [body]   vars:body   Tpl
+-> [header] vars:header Tpl
+-> [footer] vars:footer Tpl
