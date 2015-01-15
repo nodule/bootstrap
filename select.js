@@ -23,13 +23,13 @@ module.exports = {
               input.element.innerHTML = null;
             }
 
-            var view = {
+            state.view = {
               id: input.id,
               label: input.label,
               options: input.options
             };
 
-            var el = domify(mustache.render(input.template, view));
+            var el = domify(mustache.render(input.template, state.view));
 
             input.element.appendChild(el);
 
@@ -88,15 +88,34 @@ module.exports = {
       },
       out: {
         title: "Value",
-        type: "string"
+        type: "object",
+        properties: {
+          label: {
+            type: "string",
+            title: "Label"
+          },
+          value: {
+            type: "string",
+            title: "Value"
+          }
+        }
       }
     }
   },
   state: {
     select: null,
+    view: {},
     changed: function() {
+
+      var out = {};
+      var self = this;
+
+      out[this.value] = state.view.options.filter(function(opt) {
+        return opt.value === self.value;
+      }).pop();
+
       output({
-        out: this.value
+        out: out
       });
     }
   }

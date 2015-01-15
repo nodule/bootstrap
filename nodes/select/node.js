@@ -1,8 +1,15 @@
 state.select = null;
+state.view = {};
 state.changed = function () {
-  output({
-    out: this.value
-  });
+
+  var out = {};
+  var self = this;
+
+  out[this.value] = state.view.options.filter(function(opt) {
+    return opt.value === self.value;
+  }).pop();
+
+  output({out: out});
 };
 
 on.input.element = function () {
@@ -12,13 +19,13 @@ on.input.element = function () {
     input.element.innerHTML = null;
   }
 
-  var view = {
+  state.view = {
     id: input.id,
     label: input.label,
     options: input.options
   };
 
-  var el = domify(mustache.render(input.template, view));
+  var el = domify(mustache.render(input.template, state.view));
 
   input.element.appendChild(el);
 

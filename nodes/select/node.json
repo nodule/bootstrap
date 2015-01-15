@@ -59,7 +59,17 @@
       },
       "out": {
         "title": "Value",
-        "type": "string"
+        "type": "object",
+        "properties": {
+           "label": {
+             "type": "string",
+             "title": "Label"
+           },
+           "value": {
+             "type": "string",
+             "title": "Value"
+           }
+        }
       }
     }
   }
