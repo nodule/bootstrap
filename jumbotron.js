@@ -3,7 +3,6 @@ module.exports = {
   ns: "bootstrap",
   title: "Jumbotron",
   description: "Bootstrap - Jumbotron",
-  type: "object",
   ports: {
     input: {
       template: {

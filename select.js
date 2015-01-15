@@ -3,7 +3,6 @@ module.exports = {
   ns: "bootstrap",
   title: "Select",
   description: "Bootstrap - select",
-  type: "object",
   dependencies: {
     npm: {
       mustache: require('mustache'),
