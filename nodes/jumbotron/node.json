@@ -41,7 +41,7 @@
       "vars": {
         "title": "Vars",
         "type": "object"
-      }
+      },
       "template": {
         "title": "Template",
         "type": "string",

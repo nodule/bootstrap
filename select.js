@@ -1,0 +1,101 @@
+module.exports = {
+  name: "select",
+  ns: "bootstrap",
+  title: "Select",
+  description: "Bootstrap - select",
+  type: "object",
+  dependencies: {
+    npm: {
+      mustache: require('mustache'),
+      domify: require('domify')
+    }
+  },
+  ports: {
+    input: {
+      element: {
+        type: "HTMLElement",
+        title: "Parent Element",
+        fn: function __ELEMENT__(data, x, source, state, input, output, mustache, domify) {
+          var r = function() {
+            if (state.select) {
+              state.select.removeEventListener('change', state.changed);
+            }
+
+            var view = {
+              id: input.id,
+              label: input.label,
+              options: input.options
+            };
+
+            var el = domify(mustache.render(input.template, view))
+
+            input.element.appendChild(el);
+
+            state.select = input.element.querySelector('select');
+            state.select.addEventListener('change', state.changed);
+
+            output({
+              element: input.element
+            });
+          }.call(this);
+          return {
+            state: state,
+            return: r
+          };
+        }
+      },
+      template: {
+        title: "Template",
+        type: "string",
+        "default": "<div>{{#label}}<label>{{label}}</label>{{/label}}<select id=\"{{id}}\" class=\"form-control\">{{#options}}<option value=\"{{value}}\">{{label}}</option>{{/options}}</select></div>",
+        format: "html"
+      },
+      id: {
+        type: "string",
+        title: "ID",
+        "default": ""
+      },
+      label: {
+        type: "string",
+        title: "Label",
+        "default": ""
+      },
+      options: {
+        title: "Variables",
+        type: "array",
+        items: {
+          type: "object",
+          properties: {
+            label: {
+              type: "string",
+              title: "Label"
+            },
+            value: {
+              type: "string",
+              title: "Value"
+            },
+            additionalProperties: false
+          }
+        }
+      }
+    },
+    output: {
+      element: {
+        title: "Element",
+        type: "HTMLFragment"
+      },
+      out: {
+        title: "Value",
+        type: "string"
+      }
+    }
+  },
+  state: {
+    select: null,
+    changed: function() {
+      output({
+        out: this.value
+      });
+    }
+  }
+}

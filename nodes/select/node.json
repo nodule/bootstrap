@@ -19,7 +19,7 @@
       "template": {
         "title": "Template",
         "type": "string",
-        "default": "<div>{{#label}}<label>{{label}}</label>{{/label}}<select id=\"{{id}}\" class=\"form-control\">{{#options}}<option value=\"{{value}}\">{{label}}</option>{{/options}}</select></div>"
+        "default": "<div>{{#label}}<label>{{label}}</label>{{/label}}<select id=\"{{id}}\" class=\"form-control\">{{#options}}<option value=\"{{value}}\">{{label}}</option>{{/options}}</select></div>",
         "format": "html"
       },
       "id": {
@@ -55,6 +55,10 @@
       "element": {
         "title": "Element",
         "type": "HTMLFragment"
+      },
+      "out": {
+        "title": "Value",
+        "type": "string"
       }
     }
   }

@@ -6,14 +6,14 @@
     "type": "git",
     "url": "https://github.com/nodule/fs.git"
   },
+  "dependencies": {
+    "domify": "^1.3.1",
+    "mustache": "^1.0.0"
+  },
   "nodes": [
     {
       "ports": {
         "input": {
-          "mustache": {
-            "title": "Mustache Template Engine",
-            "type": "function"
-          },
           "template": {
             "title": "Template",
             "type": "string",
@@ -46,21 +46,89 @@
           }
         },
         "output": {
-          "html": {
-            "title": "html",
-            "type": "string"
+          "vars": {
+            "title": "Vars",
+            "type": "object"
+          },
+          "template": {
+            "title": "Template",
+            "type": "string",
+            "format": "html"
           }
         }
       },
-      "depends": [
-        "template:mustache"
-      ],
       "type": "object",
       "description": "Bootstrap - Jumbotron",
       "title": "Jumbotron",
       "ns": "bootstrap",
       "name": "jumbotron",
-      "fn": "< div class = \"jumbotron\" > < div class = \"container\" > < h1 > {\n  {\n    title\n  }\n} < /h1>\n    <p>{{content}}</p > < p > < a class = \"btn btn-primary btn-lg\" > {\n  {\n    button_text\n  }\n} < /a></p > < /div>\n</div >\n"
+      "fn": "output = input;"
+    },
+    {
+      "ports": {
+        "input": {
+          "element": {
+            "type": "HTMLElement",
+            "title": "Parent Element"
+          },
+          "template": {
+            "title": "Template",
+            "type": "string",
+            "default": "<div>{{#label}}<label>{{label}}</label>{{/label}}<select id=\"{{id}}\" class=\"form-control\">{{#options}}<option value=\"{{value}}\">{{label}}</option>{{/options}}</select></div>",
+            "format": "html"
+          },
+          "id": {
+            "type": "string",
+            "title": "ID",
+            "default": ""
+          },
+          "label": {
+            "type": "string",
+            "title": "Label",
+            "default": ""
+          },
+          "options": {
+            "title": "Variables",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "title": "Label"
+                },
+                "value": {
+                  "type": "string",
+                  "title": "Value"
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "output": {
+          "element": {
+            "title": "Element",
+            "type": "HTMLFragment"
+          },
+          "out": {
+            "title": "Value",
+            "type": "string"
+          }
+        }
+      },
+      "dependencies": {
+        "npm": {
+          "mustache": "latest",
+          "domify": "latest"
+        }
+      },
+      "type": "object",
+      "description": "Bootstrap - select",
+      "title": "Select",
+      "ns": "bootstrap",
+      "name": "select",
+      "fn": "state.select = null;\nstate.changed = function () {\n  output({\n    out: this.value\n  });\n};\n\non.input.element = function () {\n\n  if (state.select) {\n    state.select.removeEventListener('change', state.changed);\n  }\n\n  var view = {\n    id: input.id,\n    label: input.label,\n    options: input.options\n  };\n\n  var el = domify(mustache.render(input.template, view))\n\n  input.element.appendChild(el);\n\n  state.select = input.element.querySelector('select');\n  state.select.addEventListener('change', state.changed);\n\n  output({\n    element: input.element\n  });\n\n}"
     }
   ],
   "twigs": []
