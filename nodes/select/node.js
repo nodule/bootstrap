@@ -9,6 +9,7 @@ on.input.element = function () {
 
   if (state.select) {
     state.select.removeEventListener('change', state.changed);
+    input.element.innerHTML = null;
   }
 
   var view = {
@@ -17,7 +18,7 @@ on.input.element = function () {
     options: input.options
   };
 
-  var el = domify(mustache.render(input.template, view))
+  var el = domify(mustache.render(input.template, view));
 
   input.element.appendChild(el);
 
@@ -28,4 +29,4 @@ on.input.element = function () {
     element: input.element
   });
 
-}
+};

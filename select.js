@@ -20,6 +20,7 @@ module.exports = {
           var r = function() {
             if (state.select) {
               state.select.removeEventListener('change', state.changed);
+              input.element.innerHTML = null;
             }
 
             var view = {
@@ -28,7 +29,7 @@ module.exports = {
               options: input.options
             };
 
-            var el = domify(mustache.render(input.template, view))
+            var el = domify(mustache.render(input.template, view));
 
             input.element.appendChild(el);
 

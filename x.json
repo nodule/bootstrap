@@ -128,7 +128,7 @@
       "title": "Select",
       "ns": "bootstrap",
       "name": "select",
-      "fn": "state.select = null;\nstate.changed = function () {\n  output({\n    out: this.value\n  });\n};\n\non.input.element = function () {\n\n  if (state.select) {\n    state.select.removeEventListener('change', state.changed);\n  }\n\n  var view = {\n    id: input.id,\n    label: input.label,\n    options: input.options\n  };\n\n  var el = domify(mustache.render(input.template, view))\n\n  input.element.appendChild(el);\n\n  state.select = input.element.querySelector('select');\n  state.select.addEventListener('change', state.changed);\n\n  output({\n    element: input.element\n  });\n\n}"
+      "fn": "state.select = null;\nstate.changed = function () {\n  output({\n    out: this.value\n  });\n};\n\non.input.element = function () {\n\n  if (state.select) {\n    state.select.removeEventListener('change', state.changed);\n    input.element.innerHTML = null;\n  }\n\n  var view = {\n    id: input.id,\n    label: input.label,\n    options: input.options\n  };\n\n  var el = domify(mustache.render(input.template, view));\n\n  input.element.appendChild(el);\n\n  state.select = input.element.querySelector('select');\n  state.select.addEventListener('change', state.changed);\n\n  output({\n    element: input.element\n  });\n\n};\n"
     }
   ],
   "twigs": []
