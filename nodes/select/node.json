@@ -3,6 +3,7 @@
   "ns": "bootstrap",
   "title": "Select",
   "description": "Bootstrap - select",
+  "async": true,
   "dependencies": {
     "npm": {
       "mustache": "latest",
@@ -13,7 +14,8 @@
     "input": {
       "element": {
         "type": "HTMLElement",
-        "title": "Parent Element"
+        "title": "Parent Element",
+        "async": true
       },
       "template": {
         "title": "Template",

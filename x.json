@@ -68,7 +68,8 @@
         "input": {
           "element": {
             "type": "HTMLElement",
-            "title": "Parent Element"
+            "title": "Parent Element",
+            "async": true
           },
           "template": {
             "title": "Template",
@@ -122,6 +123,7 @@
           "domify": "latest"
         }
       },
+      "async": true,
       "description": "Bootstrap - select",
       "title": "Select",
       "ns": "bootstrap",

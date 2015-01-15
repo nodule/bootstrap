@@ -3,6 +3,7 @@ module.exports = {
   ns: "bootstrap",
   title: "Select",
   description: "Bootstrap - select",
+  async: true,
   dependencies: {
     npm: {
       mustache: require('mustache'),
@@ -14,6 +15,7 @@ module.exports = {
       element: {
         type: "HTMLElement",
         title: "Parent Element",
+        async: true,
         fn: function __ELEMENT__(data, x, source, state, input, output, mustache, domify) {
           var r = function() {
             if (state.select) {
