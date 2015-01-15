@@ -2,3 +2,4 @@ ATTIC
 node_modules
 *.swp
 *.txt
+.c9/

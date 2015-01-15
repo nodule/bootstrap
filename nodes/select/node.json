@@ -1,0 +1,61 @@
+{
+  "name": "select",
+  "ns": "bootstrap",
+  "title": "Select",
+  "description": "Bootstrap - select",
+  "type": "object",
+  "dependencies": {
+    "npm": {
+      "mustache": "latest",
+      "domify": "latest"
+    }
+  },
+  "ports": {
+    "input": {
+      "element": {
+        "type": "HTMLElement",
+        "title": "Parent Element"
+      },
+      "template": {
+        "title": "Template",
+        "type": "string",
+        "default": "<div>{{#label}}<label>{{label}}</label>{{/label}}<select id=\"{{id}}\" class=\"form-control\">{{#options}}<option value=\"{{value}}\">{{label}}</option>{{/options}}</select></div>"
+        "format": "html"
+      },
+      "id": {
+        "type": "string",
+        "title": "ID",
+        "default": ""
+      },
+      "label": {
+        "type": "string",
+        "title": "Label",
+        "default": ""
+      },
+      "options": {
+        "title": "Variables",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string",
+              "title": "Label"
+            },
+            "value": {
+              "type": "string",
+              "title": "Value"
+            },
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    "output": {
+      "element": {
+        "title": "Element",
+        "type": "HTMLFragment"
+      }
+    }
+  }
+}

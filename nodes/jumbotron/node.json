@@ -4,15 +4,8 @@
   "title": "Jumbotron",
   "description": "Bootstrap - Jumbotron",
   "type": "object",
-  "depends": [
-    "template:mustache"
-  ],
   "ports": {
     "input": {
-      "mustache": {
-        "title": "Mustache Template Engine",
-        "type": "function"
-      },
       "template": {
         "title": "Template",
         "type": "string",
@@ -45,9 +38,14 @@
       }
     },
     "output": {
-      "html": {
-        "title": "html",
-        "type": "string"
+      "vars": {
+        "title": "Vars",
+        "type": "object"
+      }
+      "template": {
+        "title": "Template",
+        "type": "string",
+        "format": "html"
       }
     }
   }
