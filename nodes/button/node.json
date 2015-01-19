@@ -1,0 +1,45 @@
+{
+  "name": "button",
+  "ns": "bootstrap",
+  "title": "Button",
+  "description": "Bootstrap - button",
+  "async": true,
+  "ports": {
+    "input": {
+      "element": {
+        "type": "HTMLElement",
+        "title": "Parent Element",
+        "async": true
+      },
+      "in": {
+        "type": "any",
+        "description": "Input to send to output when clicked",
+        "title": "Input",
+        "async": true
+      },
+      "label": {
+        "type": "string",
+        "title": "Label",
+        "default": "Click!"
+      },
+      "attr": {
+        "title": "Attributes",
+        "type": "object"
+      }
+    },
+    "output": {
+      "element": {
+        "title": "Element",
+        "type": "HTMLElement"
+      },
+      "error": {
+        "title": "Error",
+        "type": "Error"
+      },
+      "out": {
+        "title": "Output",
+        "type": "any"
+      }
+    }
+  }
+}
