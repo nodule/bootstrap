@@ -65,7 +65,7 @@
       "title": "Button",
       "ns": "bootstrap",
       "name": "button",
-      "fn": "state.el = null;\nstate.clickHandler = function(ev) {\n  output({\n    event: ev,\n    out: state.in\n  });\n};\n\non.input.element = function() {\n  if (state.el) {\n    state.el.removeEventListener('click', state.clickHandler);\n    state.el.innerHTML = null;\n  }\n  state.el = document.createElement('button');\n  state.el.setAttribute('type', 'button');\n  state.el.innerHTML = input.label;\n  state.el.classList = input.classList;\n  Object.keys(input.attr).forEach(function(name) {\n    state.el.setAttribute(name, input.attr[name]);\n  });\n  state.el.addEventListener('click', state.clickHandler);\n  input.element.appendChild(state.el);\n  output({\n    element: input.element\n  });\n};\n\non.input.in = function () {\n  state.in = data;\n};\n"
+      "fn": "state.el = null;\nstate.clickHandler = function(ev) {\n  output({\n    event: ev,\n    out: state.in\n  });\n};\n\non.input.element = function() {\n  if (state.el) {\n    state.el.removeEventListener('click', state.clickHandler);\n    state.el.innerHTML = null;\n  }\n  state.el = document.createElement('button');\n  state.el.setAttribute('type', 'button');\n  state.el.innerHTML = input.label;\n  state.el.className = input.classList;\n  Object.keys(input.attr).forEach(function(name) {\n    state.el.setAttribute(name, input.attr[name]);\n  });\n  state.el.addEventListener('click', state.clickHandler);\n  input.element.appendChild(state.el);\n  output({\n    element: input.element\n  });\n};\n\non.input.in = function () {\n  state.in = data;\n};\n"
     },
     {
       "ports": {

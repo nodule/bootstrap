@@ -14,7 +14,7 @@ on.input.element = function() {
   state.el = document.createElement('button');
   state.el.setAttribute('type', 'button');
   state.el.innerHTML = input.label;
-  state.el.classList = input.classList;
+  state.el.className = input.classList;
   Object.keys(input.attr).forEach(function(name) {
     state.el.setAttribute(name, input.attr[name]);
   });
