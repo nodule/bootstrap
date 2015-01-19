@@ -7,8 +7,8 @@ module.exports = {
   ports: {
     input: {
       element: {
-        type: "HTMLElement",
         title: "Parent Element",
+        type: "HTMLElement",
         async: true,
         fn: function __ELEMENT__(data, x, source, state, input, output) {
           var r = function() {
@@ -35,6 +35,11 @@ module.exports = {
           };
         }
       },
+      classList: {
+        title: "Class list",
+        type: "string",
+        "default": "btn btn-default"
+      },
       "in": {
         type: "any",
         description: "Input to send to output when clicked",
@@ -57,7 +62,8 @@ module.exports = {
       },
       attr: {
         title: "Attributes",
-        type: "object"
+        type: "object",
+        "default": {}
       }
     },
     output: {
@@ -68,6 +74,10 @@ module.exports = {
       error: {
         title: "Error",
         type: "Error"
+      },
+      event: {
+        title: "Event",
+        type: "object"
       },
       out: {
         title: "Output",

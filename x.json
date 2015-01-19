@@ -50,6 +50,10 @@
             "title": "Error",
             "type": "Error"
           },
+          "event": {
+            "title": "Event",
+            "type": "object"
+          },
           "out": {
             "title": "Output",
             "type": "any"
