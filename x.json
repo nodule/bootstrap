@@ -15,9 +15,14 @@
       "ports": {
         "input": {
           "element": {
-            "type": "HTMLElement",
             "title": "Parent Element",
+            "type": "HTMLElement",
             "async": true
+          },
+          "classList": {
+            "title": "Class list",
+            "type": "string",
+            "default": "btn btn-default"
           },
           "in": {
             "type": "any",
@@ -32,7 +37,8 @@
           },
           "attr": {
             "title": "Attributes",
-            "type": "object"
+            "type": "object",
+            "default": {}
           }
         },
         "output": {
