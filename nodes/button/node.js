@@ -26,5 +26,5 @@ on.input.element = function() {
 };
 
 on.input.in = function () {
-  state.in = data;
+  state.in = input.in;
 };
