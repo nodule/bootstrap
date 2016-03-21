@@ -2,7 +2,7 @@ state.el = null;
 state.clickHandler = function(ev) {
   output({
     event: ev,
-    out: state.in
+    out: $.clone('in', state.in)
   });
 };
 
@@ -21,7 +21,7 @@ on.input.element = function() {
   state.el.addEventListener('click', state.clickHandler);
   $.element.appendChild(state.el);
   output({
-    element: $.element
+    element: $.get('element')
   });
 };
 

@@ -1,7 +1,6 @@
 state.select = null;
 state.view = {};
 state.changed = function () {
-
   var out = {};
   var self = this;
 
@@ -9,7 +8,7 @@ state.changed = function () {
     return opt.value === self.value;
   }).pop();
 
-  output({out: out});
+  output({out: $.create(out)});
 };
 
 on.input.element = function () {
@@ -33,7 +32,7 @@ on.input.element = function () {
   state.select.addEventListener('change', state.changed);
 
   output({
-    element: $.element
+    element: $.get('element')
   });
 
 };
