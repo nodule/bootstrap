@@ -18,15 +18,15 @@ module.exports = {
             }
             state.el = document.createElement('button');
             state.el.setAttribute('type', 'button');
-            state.el.innerHTML = input.label;
-            state.el.className = input.classList;
-            Object.keys(input.attr).forEach(function(name) {
-              state.el.setAttribute(name, input.attr[name]);
+            state.el.innerHTML = $.label;
+            state.el.className = $.classList;
+            Object.keys($.attr).forEach(function(name) {
+              state.el.setAttribute(name, $.attr[name]);
             });
             state.el.addEventListener('click', state.clickHandler);
-            input.element.appendChild(state.el);
+            $.element.appendChild(state.el);
             output({
-              element: input.element
+              element: $.get('element')
             });
           }.call(this);
           return {
@@ -47,7 +47,7 @@ module.exports = {
         async: true,
         fn: function __IN__(data, x, source, state, input, output) {
           var r = function() {
-            state.in = data;
+            state.in = $.in;
           }.call(this);
           return {
             state: state,
@@ -90,7 +90,7 @@ module.exports = {
     clickHandler: function(ev) {
       output({
         event: ev,
-        out: state.in
+        out: $.clone('in', state.in)
       });
     }
   }

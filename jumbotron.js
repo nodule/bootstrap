@@ -48,9 +48,9 @@ module.exports = {
       }
     }
   },
-  fn: function jumbotron(input, output, state, done, cb, on) {
+  fn: function jumbotron(input, $, output, state, done, cb, on) {
     var r = function() {
-      output = input;
+      output = $.params;
     }.call(this);
     return {
       output: output,
