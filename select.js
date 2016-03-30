@@ -16,7 +16,7 @@ module.exports = {
         type: "HTMLElement",
         title: "Parent Element",
         async: true,
-        fn: function __ELEMENT__(data, x, source, state, input, output, mustache, domify) {
+        fn: function __ELEMENT__(data, source, state, input, $, output, mustache, domify) {
           var r = function() {
             if (state.select) {
               state.select.removeEventListener('change', state.changed);

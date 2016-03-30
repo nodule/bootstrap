@@ -10,7 +10,7 @@ module.exports = {
         title: "Parent Element",
         type: "HTMLElement",
         async: true,
-        fn: function __ELEMENT__(data, x, source, state, input, output) {
+        fn: function __ELEMENT__(data, source, state, input, $, output) {
           var r = function() {
             if (state.el) {
               state.el.removeEventListener('click', state.clickHandler);
@@ -45,7 +45,7 @@ module.exports = {
         description: "Input to send to output when clicked",
         title: "Input",
         async: true,
-        fn: function __IN__(data, x, source, state, input, output) {
+        fn: function __IN__(data, source, state, input, $, output) {
           var r = function() {
             state.in = $.in;
           }.call(this);
