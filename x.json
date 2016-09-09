@@ -12,6 +12,11 @@
   },
   "nodes": [
     {
+      "name": "button",
+      "ns": "bootstrap",
+      "title": "Button",
+      "description": "Bootstrap - button",
+      "async": true,
       "ports": {
         "input": {
           "element": {
@@ -60,14 +65,13 @@
           }
         }
       },
-      "async": true,
-      "description": "Bootstrap - button",
-      "title": "Button",
-      "ns": "bootstrap",
-      "name": "button",
       "fn": "state.el = null;\nstate.clickHandler = function(ev) {\n  output({\n    event: ev,\n    out: $.clone('in', state.in)\n  });\n};\n\non.input.element = function() {\n  if (state.el) {\n    state.el.removeEventListener('click', state.clickHandler);\n    state.el.innerHTML = null;\n  }\n  state.el = document.createElement('button');\n  state.el.setAttribute('type', 'button');\n  state.el.innerHTML = $.label;\n  state.el.className = $.classList;\n  Object.keys($.attr).forEach(function(name) {\n    state.el.setAttribute(name, $.attr[name]);\n  });\n  state.el.addEventListener('click', state.clickHandler);\n  $.element.appendChild(state.el);\n  output({\n    element: $.get('element')\n  });\n};\n\non.input.in = function () {\n  state.in = $.in;\n};\n"
     },
     {
+      "name": "jumbotron",
+      "ns": "bootstrap",
+      "title": "Jumbotron",
+      "description": "Bootstrap - Jumbotron",
       "ports": {
         "input": {
           "template": {
@@ -113,13 +117,20 @@
           }
         }
       },
-      "description": "Bootstrap - Jumbotron",
-      "title": "Jumbotron",
-      "ns": "bootstrap",
-      "name": "jumbotron",
       "fn": "output = $.params;\n"
     },
     {
+      "name": "select",
+      "ns": "bootstrap",
+      "title": "Select",
+      "description": "Bootstrap - select",
+      "async": true,
+      "dependencies": {
+        "npm": {
+          "mustache": "latest",
+          "domify": "latest"
+        }
+      },
       "ports": {
         "input": {
           "element": {
@@ -183,19 +194,7 @@
           }
         }
       },
-      "dependencies": {
-        "npm": {
-          "mustache": "latest",
-          "domify": "latest"
-        }
-      },
-      "async": true,
-      "description": "Bootstrap - select",
-      "title": "Select",
-      "ns": "bootstrap",
-      "name": "select",
       "fn": "state.select = null;\nstate.view = {};\nstate.changed = function () {\n  var out = {};\n  var self = this;\n\n  out[this.value] = state.view.options.filter(function(opt) {\n    return opt.value === self.value;\n  }).pop();\n\n  output({out: $.create(out)});\n};\n\non.input.element = function () {\n\n  if (state.select) {\n    state.select.removeEventListener('change', state.changed);\n    $.element.innerHTML = null;\n  }\n\n  state.view = {\n    id: $.id,\n    label: $.label,\n    options: $.options\n  };\n\n  var el = domify(mustache.render($.template, state.view));\n\n  $.element.appendChild(el);\n\n  state.select = $.element.querySelector('select');\n  state.select.addEventListener('change', state.changed);\n\n  output({\n    element: $.get('element')\n  });\n\n};\n"
     }
-  ],
-  "twigs": []
+  ]
 }
